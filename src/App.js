@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Router, Link } from '@reach/router';
+import WordNumber from "./components/WordNumber";
+import Welcome from "./components/Welcome";
+import WordColor from "./components/WordColor";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <div className="d-flex col-6 mx-auto justify-content-around">
+        <Link to="/welcome">Welcome</Link>
+        <Link to="/number">Number</Link>
+        <Link to="/word">Word</Link>
+        <Link to="/wordcolor">Word and Color</Link>
+      </div> */}
+      <Router>
+        <Welcome path="/welcome" />
+        <WordNumber path="/:WordNumber" />
+        <WordColor path="/:word/:color/:background" />
+      </Router>
     </div>
   );
 }
